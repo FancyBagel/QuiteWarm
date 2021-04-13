@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
-        if (health == 0) {
+        if (health <= 0) {
             if (OnPlayerDeath != null) {
                 OnPlayerDeath();
                 health = numOfHearts;

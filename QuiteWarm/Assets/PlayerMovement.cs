@@ -11,8 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 mousePos;
 
-    private float slowMo = 0.1f;
-    
+    //private float slowMo = 0.1f;
+
+    public float scale = 0.02f;
 
     // Update is called once per frame
     void Update()
@@ -37,9 +38,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void AdjustTime() {
-        float scale = rb.velocity.magnitude / moveSpeed;
+        // = rb.velocity.magnitude / moveSpeed;
 
-        Time.timeScale = Mathf.Max(scale, slowMo);
+        if (rb.velocity.magnitude == 0.0f) {
+            scale = 0.02f;
+        }
+        else {
+            scale +=0.002f;
+        }
+        Time.timeScale = Mathf.Min(scale, 1);
         Time.fixedDeltaTime = 0.005f * Time.timeScale;
     }
 
