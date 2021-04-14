@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public Transform zombieSpawnPoint;
-    public GameObject zombiePrefab;
+    //public GameObject zombiePrefab;
+    //public GameObject startingZombie;
+    public GameObject zombieBoi;
 
     void OnEnable() {
         PlayerHealth.OnPlayerDeath += EnemyRespawn;
@@ -16,6 +18,6 @@ public class EnemyManager : MonoBehaviour
     }
 
     void EnemyRespawn() {
-        GameObject zombie = Instantiate(zombiePrefab, zombieSpawnPoint.position, zombieSpawnPoint.rotation);
+        zombieBoi.GetComponent<ZombieHealth>().ActivateZombie();
     }
 }
