@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
 
-        if (collision.gameObject.layer == 6) {// bullets
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 8) {// bullets or enemies
             --health;
         }
     }
