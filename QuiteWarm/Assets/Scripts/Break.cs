@@ -12,6 +12,7 @@ public class Break : MonoBehaviour
             --HP;
             if (HP <= 0) {
                 Destroy(gameObject);
+                AstarPath.active.Scan();
             }
         }
     }

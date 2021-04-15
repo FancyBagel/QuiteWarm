@@ -22,12 +22,14 @@ public class ZombieHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         zombieBoi.transform.position = new Vector2(zombieSpawnPoint.position.x, zombieSpawnPoint.position.y);
         zombieBoi.SetActive(true);
+        AstarPath.active.Scan();
     }
 
     void Update()
     {
         if (health <= 0) {
             zombieBoi.SetActive(false);
+            AstarPath.active.Scan();
 
         }
         

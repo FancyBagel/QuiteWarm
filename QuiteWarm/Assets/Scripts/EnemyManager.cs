@@ -7,7 +7,9 @@ public class EnemyManager : MonoBehaviour
     public Transform zombieSpawnPoint;
     //public GameObject zombiePrefab;
     //public GameObject startingZombie;
-    public GameObject zombieBoi;
+    public GameObject zombieBoi1;
+    public GameObject zombieBoi2;
+    public GameObject turretBoi;
 
     void OnEnable() {
         PlayerHealth.OnPlayerDeath += EnemyRespawn;
@@ -18,6 +20,8 @@ public class EnemyManager : MonoBehaviour
     }
 
     void EnemyRespawn() {
-        zombieBoi.GetComponent<ZombieHealth>().ActivateZombie();
+        zombieBoi1.GetComponent<ZombieHealth>().ActivateZombie();
+        zombieBoi2.GetComponent<ZombieHealth>().ActivateZombie();
+        turretBoi.GetComponent<ZombieHealth>().ActivateZombie();
     }
 }
