@@ -9,11 +9,17 @@ public class ZombieHealth : MonoBehaviour
     public int maxHealth;
     public GameObject zombieBoi;
     public Transform zombieSpawnPoint;
+    public HealthbarBehaviour Healthbar;
 
     public void ActivateZombie() {
         health = maxHealth;
+        Healthbar.SetHealth(health, maxHealth);
         zombieBoi.transform.position = new Vector2(zombieSpawnPoint.position.x, zombieSpawnPoint.position.y);
         zombieBoi.SetActive(true);
+    }
+
+    void Start() {
+        Healthbar.SetHealth(health, maxHealth);
     }
 
     void Update()
@@ -28,6 +34,7 @@ public class ZombieHealth : MonoBehaviour
 
         if (collision.gameObject.layer == 6) {// bullets or enemies
             --health;
+            Healthbar.SetHealth(health, maxHealth);
         }
     }
 }
