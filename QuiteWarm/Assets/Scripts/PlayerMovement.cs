@@ -19,11 +19,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-        AdjustTime();
+        
     }
 
     void FixedUpdate() {
         //fiza
+        AdjustTime();
         Move();
         Rotate();
     }
@@ -41,10 +42,10 @@ public class PlayerMovement : MonoBehaviour
         // = rb.velocity.magnitude / moveSpeed;
 
         if (rb.velocity.magnitude == 0.0f) {
-            scale = 0.02f;
+            scale = 0.2f;
         }
         else {
-            scale +=0.002f;
+            scale +=0.02f;
         }
         Time.timeScale = Mathf.Min(scale, 1);
         Time.fixedDeltaTime = 0.005f * Time.timeScale;
