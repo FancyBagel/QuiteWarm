@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         // = rb.velocity.magnitude / moveSpeed;
 
         if (rb.velocity.magnitude == 0.0f) {
-            scale = 0.2f;
+            scale = 0.1f;
         }
         else {
             scale +=0.02f;
