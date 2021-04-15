@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Transform firePoint;
+    public Transform[] firePoints;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
-    public float cd = 0;
+    public float fireCooldown = 50f;
+
+    private float cd = 0;
 
     // Update is called once per frame
     void Update()
@@ -16,15 +18,19 @@ public class Shooting : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) {
             if(cd <= 0) {
                 Shoot();
-                cd = 50;
+                cd = fireCooldown;
             }
         }
         cd -= Time.timeScale;
     }
 
     void Shoot() {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        foreach (Transform firePoint in firePoints)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        }
+        
     }
 }
