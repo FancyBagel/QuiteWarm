@@ -25,6 +25,9 @@ public class Shooting : MonoBehaviour
                 cd = fireCooldown;
             }
         }
+    }
+    void FixedUpdate()
+    {
         cd -= Time.timeScale;
     }
 

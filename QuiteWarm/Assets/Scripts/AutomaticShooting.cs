@@ -23,6 +23,8 @@ public class AutomaticShooting : MonoBehaviour
                     Shoot();
                 cd = fireCooldown;
             }
+    }
+    void FixedUpdate() {
         cd -= Time.timeScale;
     }
 
