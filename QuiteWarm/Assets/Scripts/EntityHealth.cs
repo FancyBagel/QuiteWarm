@@ -2,33 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieHealth : MonoBehaviour
+public class EntityHealth : MonoBehaviour
 {
-
+    public bool isMobile;
+    public bool hasHealthBar;
     public int health;
     public int maxHealth;
-    public GameObject zombieBoi;
-    public Transform zombieSpawnPoint;
+    public GameObject entityBoi;
 
     public Healthbar healthBar;
 
     public void Start() {
         health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (hasHealthBar)
+            healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void ActivateZombie() {
+    public void ActivateEntity() {
         health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        zombieBoi.transform.position = new Vector2(zombieSpawnPoint.position.x, zombieSpawnPoint.position.y);
-        zombieBoi.SetActive(true);
+        if (hasHealthBar)
+            healthBar.SetMaxHealth(maxHealth);
+        if (isMobile) {
+            entityBoi.GetComponent<Repositioner>().Reposition();
+        }
+        entityBoi.SetActive(true);
         AstarPath.active.Scan();
     }
 
     void Update()
     {
         if (health <= 0) {
-            zombieBoi.SetActive(false);
+            entityBoi.SetActive(false);
             AstarPath.active.Scan();
 
         }
@@ -36,7 +40,7 @@ public class ZombieHealth : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision) {
 
-        if (collision.gameObject.layer == 6) {// bullets or enemies
+        if (collision.gameObject.layer == 6) {// bullets
             --health;
             healthBar.SetHealth(health);
         }
