@@ -31,6 +31,9 @@ public class EntityHealth : MonoBehaviour
 
     void Update()
     {
+        if (healthBar)
+            healthBar.SetHealth(health);
+
         if (health <= 0) {
             entityBoi.SetActive(false);
             AstarPath.active.Scan();
@@ -42,7 +45,8 @@ public class EntityHealth : MonoBehaviour
 
         if (collision.gameObject.layer == 6) {// bullets
             --health;
-            healthBar.SetHealth(health);
+            if (healthBar)
+                healthBar.SetHealth(health);
         }
     }
 }

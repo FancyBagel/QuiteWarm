@@ -15,6 +15,10 @@ public class SaveManager : MonoBehaviour
         OnGameSave();
     }
 
+    public static void triggerLoad() {
+        OnGameLoad();
+    }
+
 
 
 

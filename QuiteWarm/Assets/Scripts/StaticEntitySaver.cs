@@ -5,6 +5,7 @@ using UnityEngine;
 public class StaticEntitySaver : MonoBehaviour
 {
     public EntityHealth healthManager;
+    public GameObject entityBoi;
 
     void OnEnable() {
         SaveManager.OnGameSave += SaveEntityInfo;
@@ -28,6 +29,14 @@ public class StaticEntitySaver : MonoBehaviour
 
         PlayerPrefs.SetInt(savePath + "health", healthManager.health);
         PlayerPrefs.SetInt(savePath + "maxHealth", healthManager.maxHealth);
+
+        int act = 1;
+
+        if (entityBoi.activeInHierarchy == false) {
+            act = 0;
+        }
+
+        PlayerPrefs.SetInt(savePath + "is_active", act);    
     }
 
     void LoadEntityInfo() {
@@ -46,5 +55,13 @@ public class StaticEntitySaver : MonoBehaviour
 
         healthManager.health = PlayerPrefs.GetInt(savePath + "health", 5);
         healthManager.maxHealth = PlayerPrefs.GetInt(savePath + "maxHealth", 5);
+ 
+        int act = PlayerPrefs.GetInt(savePath + "is_active");
+
+        if (act == 1) {
+            entityBoi.SetActive(true);
+        } else {
+            entityBoi.SetActive(true);
+        }
     }
 }

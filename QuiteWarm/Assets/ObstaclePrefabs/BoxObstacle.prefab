@@ -142,3 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthManager: {fileID: -743625000139974471}
+  entityBoi: {fileID: 8696073836956105507}

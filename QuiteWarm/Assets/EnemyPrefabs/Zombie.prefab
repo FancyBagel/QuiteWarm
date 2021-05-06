@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 3500486842588896436}
   respManager: {fileID: 3292165663625054147}
+  entityBoi: {fileID: 3500486842588896434}
 --- !u!1001 &3746149373788747270
 PrefabInstance:
   m_ObjectHideFlags: 0
