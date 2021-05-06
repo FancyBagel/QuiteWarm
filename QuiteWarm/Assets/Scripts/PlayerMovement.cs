@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Move() {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        //TODO change to add force for smoother movement
+
     }
 
     void Rotate() {

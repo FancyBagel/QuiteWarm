@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1995358785507865123}
   - component: {fileID: 3500486842588896436}
   - component: {fileID: 3292165663625054147}
+  - component: {fileID: 6747167569989285839}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
@@ -268,6 +269,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityBoi: {fileID: 3500486842588896434}
   respawnPoint: {fileID: 0}
+--- !u!114 &6747167569989285839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500486842588896434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6578790949ff6bd48bc457253715ed76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthManager: {fileID: 3500486842588896436}
+  respManager: {fileID: 3292165663625054147}
 --- !u!1001 &3746149373788747270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +290,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3500486842588896443}
     m_Modifications:
+    - target: {fileID: 245663045514489263, guid: 053b004b505befa4c928bf27c5184cc5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245663045514489263, guid: 053b004b505befa4c928bf27c5184cc5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 245663046681967513, guid: 053b004b505befa4c928bf27c5184cc5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
