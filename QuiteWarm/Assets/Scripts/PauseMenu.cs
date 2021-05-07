@@ -44,15 +44,15 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMenu() {
-        //Time.timeScale = prevTimeScale;
-        //SceneManager.LoadScene("Menu");
+        Time.timeScale = prevTimeScale;
+        SceneManager.LoadScene("Menu");
         Debug.Log("Loading menu...");
     }
 
     public void QuitGame() {
         Debug.Log("Quitting game...");
-        //Application.Quit();
-        SaveManager.triggerLoad();
+        Application.Quit();
+        // SaveManager.triggerLoad();
     }
 
     public void SetSlot1() {
