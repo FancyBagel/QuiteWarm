@@ -9,19 +9,24 @@ public class EntityHealth : MonoBehaviour
     public int health;
     public int maxHealth;
     public GameObject entityBoi;
+    bool isShowing;
 
     public Healthbar healthBar;
 
     public void Start() {
         health = maxHealth;
-        if (hasHealthBar)
+        if (hasHealthBar) {
             healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetActive(false);
+        }
     }
 
     public void ActivateEntity() {
         health = maxHealth;
-        if (hasHealthBar)
+        if (hasHealthBar) {
             healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetActive(false);
+        }
         if (isMobile) {
             entityBoi.GetComponent<Repositioner>().Reposition();
         }
@@ -31,8 +36,13 @@ public class EntityHealth : MonoBehaviour
 
     void Update()
     {
-        if (healthBar)
+        isShowing = (health < maxHealth);
+
+        if (healthBar) {
             healthBar.SetHealth(health);
+            healthBar.SetActive(isShowing);
+        }
+        
 
         if (health <= 0) {
             entityBoi.SetActive(false);
@@ -45,8 +55,10 @@ public class EntityHealth : MonoBehaviour
 
         if (collision.gameObject.layer == 6) {// bullets
             --health;
-            if (healthBar)
+            if (healthBar) {
                 healthBar.SetHealth(health);
+                healthBar.SetActive(true);
+            }
         }
     }
 }

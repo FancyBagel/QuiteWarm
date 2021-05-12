@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 245663045514489263}
   - component: {fileID: 245663045514489260}
   - component: {fileID: 245663045514489261}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 245663046296805950}
   - component: {fileID: 245663046296805945}
   - component: {fileID: 245663046296805951}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,6 +208,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 245663045514489261}
+  border: {fileID: 245663047243223158}
 --- !u!1 &245663046681967518
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +222,7 @@ GameObject:
   - component: {fileID: 245663046681967515}
   - component: {fileID: 245663046681967512}
   - component: {fileID: 245663046681967525}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +334,7 @@ GameObject:
   - component: {fileID: 245663047243223159}
   - component: {fileID: 245663047243223153}
   - component: {fileID: 245663047243223158}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
