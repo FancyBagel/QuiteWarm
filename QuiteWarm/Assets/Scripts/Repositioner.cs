@@ -6,10 +6,14 @@ public class Repositioner : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject entityBoi;
-    public Transform respawnPoint;
+    private Vector3 respawnPoint;
+
+    public void Start() {
+        respawnPoint = entityBoi.transform.position;
+    }
 
     public void Reposition()
     {
-        entityBoi.transform.position = respawnPoint.position;
+        entityBoi.transform.position = respawnPoint;
     }
 }

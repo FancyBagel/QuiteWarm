@@ -31,8 +31,8 @@ public class MovingEntitySaver : MonoBehaviour
         PlayerPrefs.SetInt(savePath + "health", healthManager.health);
         PlayerPrefs.SetInt(savePath + "maxHealth", healthManager.maxHealth);
 
-        PlayerPrefs.SetFloat(savePath + "respawn_pos_x", respManager.respawnPoint.position.x);
-        PlayerPrefs.SetFloat(savePath + "respawn_pos_y", respManager.respawnPoint.position.y);
+        // PlayerPrefs.SetFloat(savePath + "respawn_pos_x", respManager.respawnPoint.position.x);
+        // PlayerPrefs.SetFloat(savePath + "respawn_pos_y", respManager.respawnPoint.position.y);
 
         int act = 1;
 
@@ -65,7 +65,7 @@ public class MovingEntitySaver : MonoBehaviour
         pos.x = PlayerPrefs.GetFloat(savePath + "respawn_pos_x", 0);
         pos.y = PlayerPrefs.GetFloat(savePath + "respawn_pos_y", 0);
 
-        respManager.respawnPoint.position = pos;
+        // respManager.respawnPoint.position = pos;
 
         int act = PlayerPrefs.GetInt(savePath + "is_active");
 
