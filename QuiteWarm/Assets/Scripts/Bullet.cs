@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public bool isDestructible = true;
+    
     void OnCollisionEnter2D(Collision2D collision) {
-        // if (!collision.gameObject.CompareTag("FamiliarBullet")) {
+         if (isDestructible) {
             Destroy(gameObject);
-        //}
+        }
     }
     
     void OnEnable() {

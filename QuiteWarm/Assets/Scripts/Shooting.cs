@@ -14,13 +14,14 @@ public class Shooting : MonoBehaviour
     public int bulletCount = 1;
     public bool isEnemy = false;
 
-    private float cd = 0;
+    private float cd = 0f;
 
-    AudioSource audio;
+    private AudioSource audio;
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        cd = fireCooldown;
     }
 
     // Update is called once per frame
