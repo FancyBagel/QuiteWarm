@@ -15,11 +15,21 @@ public class Shooting : MonoBehaviour
 
     private float cd = 0;
 
+    AudioSource audio;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        audio.pitch = Time.timeScale;
+        //nk jakis min bo dzwiek jest giga cursed jak jest bardzo powoli
         if ((!isAutomatic && Input.GetButtonDown("Fire1")) || (isAutomatic && Input.GetButton("Fire1"))) {
             if(cd <= 0) {
+                audio.Play(0);
                 for (int i = 0; i < bulletCount; i++)
                     Shoot();
                 cd = fireCooldown;

@@ -15,14 +15,23 @@ public class AutomaticShooting : MonoBehaviour
 
     private float cd = 50f;
 
+    AudioSource audio;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-            if(cd <= 0) {
-                for (int i = 0; i < bulletCount; i++)
-                    Shoot();
-                cd = fireCooldown;
-            }
+        audio.pitch = Time.timeScale;
+        if(cd <= 0) {
+            audio.Play();
+            for (int i = 0; i < bulletCount; i++)
+                Shoot();
+            cd = fireCooldown;
+        }
     }
     void FixedUpdate() {
         cd -= Time.timeScale;
