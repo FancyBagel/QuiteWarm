@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
     public delegate void PlayerDeathAction();
     public static event PlayerDeathAction OnPlayerDeath;
 
+    public float iFramesMax = 100f;
+    public float iFrames = 0f; 
+
     void Update() {
 
         if (health > numOfHearts) {
@@ -44,10 +47,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        iFrames -= Time.timeScale;
+    }
+
+
     void OnCollisionEnter2D(Collision2D collision) {
 
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 8) {// bullets or enemies
-            --health;
+            if (iFrames <= 0) {
+                --health;
+                iFrames = iFramesMax;
+            }
         }
     }
 }
