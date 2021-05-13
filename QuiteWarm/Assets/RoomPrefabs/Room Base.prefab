@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4441092941997164354}
   - component: {fileID: 4441092941997164355}
+  - component: {fileID: 4022318822646013226}
   m_Layer: 0
   m_Name: Room Base
   m_TagString: Untagged
@@ -211,6 +212,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   obstacles: []
+--- !u!114 &4022318822646013226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441092941997164357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd18ec93713184997969f17048f0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8653359595426528175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,10 +234,6 @@ PrefabInstance:
     - target: {fileID: 5956834153061415859, guid: 46f15735861938a4eb84d7ef32e5b99d, type: 3}
       propertyPath: m_Name
       value: Walls
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956834153061415859, guid: 46f15735861938a4eb84d7ef32e5b99d, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6496560808908670352, guid: 46f15735861938a4eb84d7ef32e5b99d, type: 3}
       propertyPath: m_RootOrder
