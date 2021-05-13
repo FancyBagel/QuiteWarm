@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2733416014279191890, guid: f1a9204e3a527f04290feeeebcfa76ec, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 7200446359547797164}
     - target: {fileID: 3650640761362266792, guid: f1a9204e3a527f04290feeeebcfa76ec, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -408,6 +412,11 @@ PrefabInstance:
 --- !u!1 &6284755189482512618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5377996379151284986, guid: f1a9204e3a527f04290feeeebcfa76ec, type: 3}
+  m_PrefabInstance: {fileID: 2131773540243069456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7200446359547797164 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9113187146299737276, guid: f1a9204e3a527f04290feeeebcfa76ec, type: 3}
   m_PrefabInstance: {fileID: 2131773540243069456}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4736421903517277784
@@ -678,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 493798260323706213}
     - target: {fileID: 4441092941997164357, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
       propertyPath: m_Name
-      value: Room
+      value: Room_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}

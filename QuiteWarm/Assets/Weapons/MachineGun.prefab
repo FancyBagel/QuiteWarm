@@ -83,6 +83,9 @@ MonoBehaviour:
   isAutomatic: 1
   spreadAngle: 30
   bulletCount: 1
+  isEnemy: 0
+  audio: {fileID: 0}
+  clip: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
 --- !u!1 &7864631783235280788
 GameObject:
   m_ObjectHideFlags: 0

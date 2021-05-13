@@ -186,6 +186,9 @@ MonoBehaviour:
   isAutomatic: 0
   spreadAngle: 0
   bulletCount: 1
+  isEnemy: 0
+  audio: {fileID: 3808620711900855756}
+  clip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
 --- !u!82 &3808620711900855756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -198,7 +201,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

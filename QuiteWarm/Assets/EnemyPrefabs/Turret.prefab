@@ -378,6 +378,8 @@ MonoBehaviour:
   spreadAngle: 0
   bulletCount: 1
   isEnemy: 1
+  audio: {fileID: 9113187146299737276}
+  clip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
 --- !u!1001 &3585264783493682951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,6 +591,11 @@ GameObject:
 --- !u!4 &8152213760456189836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4287426913017487100, guid: 4f69910a07d4b0b49aadcaddcc6ce41c, type: 3}
+  m_PrefabInstance: {fileID: 5377996380311763312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &9113187146299737276 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3808620711900855756, guid: 4f69910a07d4b0b49aadcaddcc6ce41c, type: 3}
   m_PrefabInstance: {fileID: 5377996380311763312}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8152213762175824459 stripped

@@ -185,3 +185,6 @@ MonoBehaviour:
   isAutomatic: 0
   spreadAngle: 0
   bulletCount: 1
+  isEnemy: 0
+  audio: {fileID: 0}
+  clip: {fileID: 8300000, guid: 0bd05763df902854a80475577a26666a, type: 3}

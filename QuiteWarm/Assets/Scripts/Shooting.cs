@@ -16,11 +16,11 @@ public class Shooting : MonoBehaviour
 
     private float cd = 0f;
 
-    private AudioSource audio;
+    public AudioSource audio;
+    public AudioClip clip;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
         cd = fireCooldown;
     }
 
@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
         //nk jakis min bo dzwiek jest giga cursed jak jest bardzo powoli
         if ((!isAutomatic && Input.GetButtonDown("Fire1")) || (isAutomatic && Input.GetButton("Fire1")) || isEnemy) {
             if(cd <= 0) {
-                audio.Play(0);
+                audio.PlayOneShot(clip, 1);
                 for (int i = 0; i < bulletCount; i++)
                     Shoot();
                 cd = fireCooldown;
