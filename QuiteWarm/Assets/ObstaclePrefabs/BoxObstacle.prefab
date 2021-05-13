@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8696073836956105505}
   - component: {fileID: -743625000139974471}
   - component: {fileID: 1601969799034436383}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoxObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696073836956105507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.561474, y: 0.63993776, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2.19, y: 2.08}
   m_EdgeRadius: 0
 --- !u!114 &-743625000139974471
 MonoBehaviour:

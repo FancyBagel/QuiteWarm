@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8870332373781410978}
   - component: {fileID: 8870332373781410977}
   - component: {fileID: 8870332373781410976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PermanentObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8870332373781411039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4110973, y: 2.1935484, z: 0}
-  m_LocalScale: {x: 11, y: 11, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7.5, y: 7.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

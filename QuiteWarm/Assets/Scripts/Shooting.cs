@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour
     public bool isAutomatic = false;
     public float spreadAngle = 0;
     public int bulletCount = 1;
+    public bool isEnemy = false;
 
     private float cd = 0;
 
@@ -27,7 +28,7 @@ public class Shooting : MonoBehaviour
     {
         audio.pitch = Time.timeScale;
         //nk jakis min bo dzwiek jest giga cursed jak jest bardzo powoli
-        if ((!isAutomatic && Input.GetButtonDown("Fire1")) || (isAutomatic && Input.GetButton("Fire1"))) {
+        if ((!isAutomatic && Input.GetButtonDown("Fire1")) || (isAutomatic && Input.GetButton("Fire1")) || isEnemy) {
             if(cd <= 0) {
                 audio.Play(0);
                 for (int i = 0; i < bulletCount; i++)
