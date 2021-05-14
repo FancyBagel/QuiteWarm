@@ -7,6 +7,26 @@ public class EntityManager : MonoBehaviour
     public GameObject[] enemies;
     public GameObject[] obstacles;
 
+    public bool cleared = false;
+    public bool entered = false;
+
+    void Start() {
+        EnemyDisable();
+    }
+
+    void Update() {
+        if (entered)
+            checkClear();
+    }
+
+    void checkClear() {
+        foreach (GameObject enemy in enemies) {
+            if (enemy.activeSelf)
+                return;
+        }
+        cleared = true;
+    }
+
     void OnEnable() {
         PlayerHealth.OnPlayerDeath += EnemyRespawn;
         PlayerHealth.OnPlayerDeath += ObstacleRespawn;
@@ -17,13 +37,20 @@ public class EntityManager : MonoBehaviour
         PlayerHealth.OnPlayerDeath -= ObstacleRespawn;
     }
 
-    void EnemyRespawn() {
+    public void EnemyRespawn() {
         foreach (GameObject enemy in enemies) {
             enemy.GetComponent<EntityHealth>().ActivateEntity();
         }
     }
 
-    void ObstacleRespawn() {
+    void EnemyDisable() {
+        foreach (GameObject enemy in enemies) {
+            enemy.GetComponent<Repositioner>().SaveLocation();
+            enemy.SetActive(false);
+        }
+    }
+
+    public void ObstacleRespawn() {
         foreach (GameObject obstacle in obstacles) {
             obstacle.GetComponent<EntityHealth>().ActivateEntity();
         }

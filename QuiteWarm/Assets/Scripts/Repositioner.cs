@@ -8,7 +8,7 @@ public class Repositioner : MonoBehaviour
     public GameObject entityBoi;
     private Vector3 respawnPoint;
 
-    public void Start() {
+    public void SaveLocation() {
         respawnPoint = entityBoi.transform.position;
     }
 

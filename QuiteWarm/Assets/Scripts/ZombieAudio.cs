@@ -12,7 +12,7 @@ public class ZombieAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cd = Random.Range(50f, 150f);
+        cd = Random.Range(500f, 1000f);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class ZombieAudio : MonoBehaviour
         audio.pitch = 0.5f + Time.timeScale / 2;
         if(cd <= 0) {
             audio.Play(0);
-            cd = Random.Range(50f, 150f);
+            cd = Random.Range(500f, 1000f);
         }
     }
 
