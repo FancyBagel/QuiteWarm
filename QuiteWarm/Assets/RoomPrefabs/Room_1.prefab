@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4022318822646013226, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+      propertyPath: nextRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 6501445218923644262}
     - target: {fileID: 4441092941997164354, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -698,6 +702,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4441092941997164355, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+      propertyPath: roomGen
+      value: 
+      objectReference: {fileID: 5785452971844804361}
     - target: {fileID: 4441092941997164355, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
       propertyPath: enemies.Array.size
       value: 3
@@ -760,6 +768,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+--- !u!1 &6501445218923644262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4441092941997164357, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+  m_PrefabInstance: {fileID: 7464764190564500003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5785452971844804361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4022318822646013226, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+  m_PrefabInstance: {fileID: 7464764190564500003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501445218923644262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd18ec93713184997969f17048f0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6501445219934725354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4441092941262989001, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}

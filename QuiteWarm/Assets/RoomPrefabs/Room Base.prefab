@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb04e0a0c6e6654c95fee38389524cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomGen: {fileID: 4022318822646013226}
   enemies: []
   obstacles: []
   doors:
@@ -347,6 +348,7 @@ MonoBehaviour:
   startingRoom: 0
   startingSeed: 1
   setSeed: 0
+  roomNo: 0
 --- !u!1 &4790723466787118190
 GameObject:
   m_ObjectHideFlags: 0

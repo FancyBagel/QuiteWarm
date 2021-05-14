@@ -8,15 +8,15 @@ public class MovingEntitySaver : MonoBehaviour
     public Repositioner respManager;
     public GameObject entityBoi;
 
-    void OnEnable() {
-        SaveManager.OnGameSave += SaveEntityInfo;
-        SaveManager.OnGameLoad += LoadEntityInfo;
-    }
+    // void OnEnable() {
+    //     SaveManager.OnGameSave += SaveEntityInfo;
+    //     SaveManager.OnGameLoad += LoadEntityInfo;
+    // }
 
-    void OnDisable() {
-        SaveManager.OnGameSave -= SaveEntityInfo;
-        SaveManager.OnGameLoad -= LoadEntityInfo;
-    }
+    // void OnDisable() {
+    //     SaveManager.OnGameSave -= SaveEntityInfo;
+    //     SaveManager.OnGameLoad -= LoadEntityInfo;
+    // }
 
     void SaveEntityInfo() {
         string savePath = PlayerPrefs.GetString("CurrentSlot", "Slot 1");
