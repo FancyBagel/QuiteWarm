@@ -808,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 437452473}
   respawnPoint: {x: 0, y: 0, z: 0}
-  respawnCamera: {x: 0, y: 0, z: 0}
+  respawnCamera: {x: 0, y: 0, z: -10}
 --- !u!114 &437452469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 437452469}
   respManager: {fileID: 437452468}
+  lastClearedRoom: 0
 --- !u!58 &437452471
 CircleCollider2D:
   m_ObjectHideFlags: 0

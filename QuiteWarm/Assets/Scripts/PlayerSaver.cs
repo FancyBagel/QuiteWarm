@@ -13,6 +13,7 @@ public class PlayerSaver : MonoBehaviour
         int nowLoadingGame = PlayerPrefs.GetInt("Game_Starting_Loading", 0);
 
         if (nowLoadingGame == 1) { //game is loading from save
+            Debug.Log("Loading from save");
             LoadPlayerInfo();
         }
     }
@@ -45,6 +46,7 @@ public class PlayerSaver : MonoBehaviour
 
         PlayerPrefs.SetFloat(savePath + "camera_respawn_pos_x", respManager.respawnCamera.x);
         PlayerPrefs.SetFloat(savePath + "camera_respawn_pos_y", respManager.respawnCamera.y);
+        PlayerPrefs.SetFloat(savePath + "camera_respawn_pos_z", respManager.respawnCamera.z);
 
        
     }
@@ -61,15 +63,18 @@ public class PlayerSaver : MonoBehaviour
         respManager.respawnPoint.x = PlayerPrefs.GetFloat(savePath + "respawn_pos_x", 0);
         respManager.respawnPoint.y = PlayerPrefs.GetFloat(savePath + "respawn_pos_y", 0);
 
-        // Vector2 pos;
+        Vector2 pos;
 
-        // pos.x = respManager.respawnPoint.x;
-        // pos.y = respManager.respawnPoint.y;
+        pos.x = respManager.respawnPoint.x;
+        pos.y = respManager.respawnPoint.y;
         
-        // transform.position = pos;
+        transform.position = pos;
 
         respManager.respawnCamera.x = PlayerPrefs.GetFloat(savePath + "camera_respawn_pos_x", respManager.respawnCamera.x);
         respManager.respawnCamera.y = PlayerPrefs.GetFloat(savePath + "camera_respawn_pos_y", respManager.respawnCamera.y);
+        respManager.respawnCamera.z = PlayerPrefs.GetFloat(savePath + "camera_respawn_pos_z", respManager.respawnCamera.z);
+
+        Camera.main.transform.position = respManager.respawnCamera;
     }
 
 
