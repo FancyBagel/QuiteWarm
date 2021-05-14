@@ -64,10 +64,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4022318822646013226, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+      propertyPath: startingRoom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022318822646013226, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+      propertyPath: roomsToGenerate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4441092941786682282, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 46e01bb563e26ab449727f0557d4423d, type: 3}
+    - target: {fileID: 4441092941786682287, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4441092941997164354, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -115,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 4441092941997164357, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
       propertyPath: m_Name
       value: Room_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524879661786752615, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e954c4b6ee7bf8c49a2576caf26b299f, type: 3}

@@ -8,12 +8,28 @@ public class RoomGenerator : MonoBehaviour
     public GameObject lastRoom;
     public Vector3 spawnLocation;
 
+    public int roomsToGenerate = 5;
+    public bool startingRoom = false;
+    public int startingSeed = 1;
+    public bool setSeed = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0, 5) >= 1) {
+        if (startingRoom) {
+            GenerateRoom();
+            if (setSeed)
+                Random.seed = startingSeed;
+        }
+    }
+
+    public void GenerateRoom() 
+    {
+        if (roomsToGenerate >= 1) {
             int roomNumber = Random.Range(0, nextRooms.Length);
-            Instantiate(nextRooms[roomNumber], transform.position + spawnLocation, Quaternion.identity);
+            GameObject generated = Instantiate(nextRooms[roomNumber], transform.position + spawnLocation, Quaternion.identity);
+            generated.GetComponent<RoomGenerator>().roomsToGenerate = roomsToGenerate - 1;
+            generated.GetComponent<RoomGenerator>().GenerateRoom();
         }
         else {
             Instantiate(lastRoom, transform.position + spawnLocation, Quaternion.identity);

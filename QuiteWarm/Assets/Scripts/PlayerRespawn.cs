@@ -6,11 +6,9 @@ public class PlayerRespawn : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public Vector2 respawnPoint;
+    public Vector3 respawnPoint;
+    public Vector3 respawnCamera;
 
-    void Start() {
-        respawnPoint = new Vector2(0,0);
-    }
 
     void OnEnable() {
         PlayerHealth.OnPlayerDeath += Respawn;
@@ -23,6 +21,6 @@ public class PlayerRespawn : MonoBehaviour
     void Respawn() {
         rb.velocity = new Vector2(0,0);
         rb.position = respawnPoint;
-        
+        Camera.main.transform.position = respawnCamera;
     }
 }
