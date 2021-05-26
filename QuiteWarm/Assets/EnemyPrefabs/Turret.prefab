@@ -486,9 +486,12 @@ MonoBehaviour:
   bulletForce: 10
   fireCooldown: 100
   isAutomatic: 0
+  infiniteAmmo: 1
   spreadAngle: 0
-  bulletCount: 1
   isEnemy: 1
+  bulletCount: 1
+  currentAmmo: 10
+  maxAmmo: 10
   audio: {fileID: 4854462049665947112}
   clip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
 --- !u!1001 &3585264783493682951

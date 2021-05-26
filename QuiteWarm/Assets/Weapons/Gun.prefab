@@ -183,8 +183,11 @@ MonoBehaviour:
   bulletForce: 20
   fireCooldown: 30
   isAutomatic: 0
+  infiniteAmmo: 1
   spreadAngle: 0
-  bulletCount: 1
   isEnemy: 0
+  bulletCount: 1
+  currentAmmo: 10
+  maxAmmo: 10
   audio: {fileID: 0}
   clip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}

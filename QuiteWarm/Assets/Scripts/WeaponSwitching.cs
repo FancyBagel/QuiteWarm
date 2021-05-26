@@ -5,6 +5,9 @@ using UnityEngine;
 public class WeaponSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
+    public int currentWeaponAmmo = 1;
+    public int currentWeaponMaxAmmo = 10;
+    public bool currentWeaponInfiniteAmmo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,8 @@ public class WeaponSwitching : MonoBehaviour
 
         if (previousSelectedWeapon != selectedWeapon)
             SelectWeapon();
+
+        updateAmmoValues();
     }
 
     void SelectWeapon()
@@ -45,6 +50,46 @@ public class WeaponSwitching : MonoBehaviour
                 weapon.gameObject.SetActive(true);
             else
                 weapon.gameObject.SetActive(false);
+            
+            i++;
+        }
+    }
+
+    void updateAmmoValues() {
+        int i = 0;
+        foreach (Transform weapon in transform)
+        {
+            if (i == selectedWeapon) {
+                Shooting w_shooting = weapon.GetComponent<Shooting>();
+                currentWeaponAmmo = w_shooting.currentAmmo;
+                currentWeaponMaxAmmo = w_shooting.maxAmmo;
+                currentWeaponInfiniteAmmo = w_shooting.infiniteAmmo;
+            }
+            
+            i++;
+        }
+    }
+
+    public void addAmmoToRandWeapon(int value) {
+
+        int numberOfWeapons = 0;
+
+        foreach (Transform weapon in transform)
+        {
+            numberOfWeapons++;
+        }
+
+        int weaponToBeGiven = Random.Range(0, numberOfWeapons);
+
+        int i = 0;
+        foreach (Transform weapon in transform)
+        {
+            if (i == weaponToBeGiven) {
+                Shooting w_shooting = weapon.GetComponent<Shooting>();
+                w_shooting.currentAmmo += value;
+                if (w_shooting.currentAmmo > w_shooting.maxAmmo) 
+                    w_shooting.currentAmmo = w_shooting.maxAmmo;
+            }
             
             i++;
         }

@@ -45,6 +45,9 @@ public class EntityHealth : MonoBehaviour
         
 
         if (health <= 0) {
+            GameObject weapons = GameObject.Find("WeaponHolder");
+            WeaponSwitching weaponManager = weapons.GetComponent<WeaponSwitching>();
+            weaponManager.addAmmoToRandWeapon(20);
             entityBoi.SetActive(false);
             AstarPath.active.Scan();
 

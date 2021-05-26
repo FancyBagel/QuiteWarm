@@ -10,9 +10,14 @@ public class Shooting : MonoBehaviour
     public float bulletForce = 20f;
     public float fireCooldown = 50f;
     public bool isAutomatic = false;
+    public bool infiniteAmmo = false;
     public float spreadAngle = 0;
-    public int bulletCount = 1;
+   
     public bool isEnemy = false;
+
+    public int bulletCount = 10;
+    public int currentAmmo = 10;
+    public int maxAmmo = 10;
 
     private float cd = 0f;
 
@@ -29,12 +34,17 @@ public class Shooting : MonoBehaviour
     {
         audio.pitch = Time.timeScale;
         //nk jakis min bo dzwiek jest giga cursed jak jest bardzo powoli
-        if ((!isAutomatic && Input.GetButtonDown("Fire1")) || (isAutomatic && Input.GetButton("Fire1")) || isEnemy) {
+        if ((!isAutomatic && Input.GetButtonDown("Fire1") ) || (isAutomatic && Input.GetButton("Fire1")) || isEnemy) {
             if(cd <= 0) {
-                audio.PlayOneShot(clip, 1);
-                for (int i = 0; i < bulletCount; i++)
-                    Shoot();
-                cd = fireCooldown;
+                if (currentAmmo > 0 || infiniteAmmo) {
+                    audio.PlayOneShot(clip, 1);
+                    currentAmmo--;
+                    for (int i = 0; i < bulletCount; i++)
+                        Shoot();
+                    cd = fireCooldown;
+                } else {
+                    //play no shot clip
+                }
             }
         }
     }
@@ -44,6 +54,7 @@ public class Shooting : MonoBehaviour
     }
 
     void Shoot() {
+
         foreach (Transform firePoint in firePoints)
         {
             Vector3 spread = new Vector3(0, 0, Random.Range(-spreadAngle, spreadAngle));
