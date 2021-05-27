@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EntityManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EntityManager : MonoBehaviour
 
     public bool cleared = false;
     public bool entered = false;
+    public bool lastRoom = false;
 
     public Vector3 respawnPoint;
 
@@ -55,6 +57,10 @@ public class EntityManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerRespawn>().respawnCamera = transform.position;
         GameObject.Find("Player").GetComponent<PlayerSaver>().lastClearedRoom = roomGen.roomNo;
         openDoors();
+
+        if (lastRoom) {
+            SceneManager.LoadScene("Credits");
+        }
     }
 
     void OnEnable() {

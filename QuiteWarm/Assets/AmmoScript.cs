@@ -17,7 +17,7 @@ public class AmmoScript : MonoBehaviour
     void Update()
     {
         if (weaponManager.currentWeaponInfiniteAmmo) {
-            ammoText.text = "INFINITE AMMO";
+            ammoText.text = "∞/∞";
         } else {
             ammoText.text = weaponManager.currentWeaponAmmo.ToString() + "/" + weaponManager.currentWeaponMaxAmmo.ToString();
         }

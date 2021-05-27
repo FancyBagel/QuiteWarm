@@ -452,7 +452,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1405095033710516396, guid: 73a5808c92f585c4baac0fdaae985abf, type: 3}
       propertyPath: roomsToGenerate
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1804867395188785859, guid: 73a5808c92f585c4baac0fdaae985abf, type: 3}
       propertyPath: m_Name
@@ -501,6 +501,14 @@ PrefabInstance:
     - target: {fileID: 1804867395188785860, guid: 73a5808c92f585c4baac0fdaae985abf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804867395188785861, guid: 73a5808c92f585c4baac0fdaae985abf, type: 3}
+      propertyPath: enemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804867395188785861, guid: 73a5808c92f585c4baac0fdaae985abf, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a5808c92f585c4baac0fdaae985abf, type: 3}
@@ -821,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4561d9e0e32f3d4e88c650c8c49bd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 500
   numOfHearts: 3
   hearts:
   - {fileID: 2014238300}
@@ -2293,7 +2301,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INFINITE AMMO
+  m_Text: "\u221E/\u221E"
 --- !u!222 &1132254665
 CanvasRenderer:
   m_ObjectHideFlags: 0
