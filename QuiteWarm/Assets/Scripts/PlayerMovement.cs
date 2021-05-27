@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
     void AdjustTime() {
         // = rb.velocity.magnitude / moveSpeed;
+        if (Time.timeScale == 0f)
+            return;
 
         if (rb.velocity.magnitude == 0.0f) {
             scale = 0.1f;

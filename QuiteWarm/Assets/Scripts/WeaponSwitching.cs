@@ -94,4 +94,31 @@ public class WeaponSwitching : MonoBehaviour
             i++;
         }
     }
+
+    public void saveWeaponAmmo() {
+        int i = 0;
+        string savePath = PlayerPrefs.GetString("CurrentSlot", "Slot 1") + "/Weapons/";
+        foreach (Transform weapon in transform)
+        {
+            
+            Shooting w_shooting = weapon.GetComponent<Shooting>();
+            
+            PlayerPrefs.SetInt(savePath + i.ToString(), w_shooting.currentAmmo);
+            i++;
+        }
+    }
+
+    public void loadWeaponAmmo() {
+        int i = 0;
+        string savePath = PlayerPrefs.GetString("CurrentSlot", "Slot 1") + "/Weapons/";
+        foreach (Transform weapon in transform)
+        {
+            
+            Shooting w_shooting = weapon.GetComponent<Shooting>();
+            
+            w_shooting.currentAmmo = PlayerPrefs.GetInt(savePath + i.ToString(), w_shooting.maxAmmo);
+            
+            i++;
+        }
+    }
 }

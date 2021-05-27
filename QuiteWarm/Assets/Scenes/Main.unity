@@ -845,6 +845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 437452469}
   respManager: {fileID: 437452468}
+  weaponManager: {fileID: 0}
+  weaponHolder: {fileID: 1925970938}
   lastClearedRoom: 0
 --- !u!58 &437452471
 CircleCollider2D:

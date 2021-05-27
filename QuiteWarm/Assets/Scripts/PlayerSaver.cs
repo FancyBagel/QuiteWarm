@@ -7,9 +7,14 @@ public class PlayerSaver : MonoBehaviour
     
     public PlayerHealth healthManager;
     public PlayerRespawn respManager;
+    public WeaponSwitching weaponManager;
+    public GameObject weaponHolder;
     public int lastClearedRoom = 0;
 
     void Start () {
+    
+        weaponManager = weaponHolder.GetComponent<WeaponSwitching>();
+ 
         int nowLoadingGame = PlayerPrefs.GetInt("Game_Starting_Loading", 0);
 
         if (nowLoadingGame == 1) { //game is loading from save
@@ -29,6 +34,7 @@ public class PlayerSaver : MonoBehaviour
     }
 
     void SavePlayerInfo() {
+        weaponManager = weaponHolder.GetComponent<WeaponSwitching>();
         string savePath = PlayerPrefs.GetString("CurrentSlot", "Slot 1");
 
         int currentSeed = PlayerPrefs.GetInt("CurrentSeed");
@@ -48,6 +54,7 @@ public class PlayerSaver : MonoBehaviour
         PlayerPrefs.SetFloat(savePath + "camera_respawn_pos_y", respManager.respawnCamera.y);
         PlayerPrefs.SetFloat(savePath + "camera_respawn_pos_z", respManager.respawnCamera.z);
 
+        weaponManager.saveWeaponAmmo();
        
     }
 
@@ -75,6 +82,8 @@ public class PlayerSaver : MonoBehaviour
         respManager.respawnCamera.z = PlayerPrefs.GetFloat(savePath + "camera_respawn_pos_z", respManager.respawnCamera.z);
 
         Camera.main.transform.position = respManager.respawnCamera;
+
+        weaponManager.loadWeaponAmmo();
     }
 
 
