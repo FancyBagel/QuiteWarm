@@ -20,15 +20,20 @@ namespace Pathfinding {
     	public float rotationSpeed = 90;
 		public float rotationDelay = 3;
     	public float moveSpeed;
+		public float viewDistance = 10;
+		public float fieldOfView = 30;
+		public LayerMask layerMask;
 
 		public Transform target;
+		public Transform player;
 		private float rotation = 0;
 		private float rotationCD = 0;
 		IAstarAI ai;
 
 		void Start() {
-			target = GameObject.Find("Player").transform;
-			
+			player = GameObject.Find("Player").transform;
+			target = player;
+
         	transform.Rotate(Vector3.forward, Random.Range(-180, 180));
 		}
 
@@ -54,12 +59,18 @@ namespace Pathfinding {
 
 		void UpdateMovement()
     	{
-        	if (wandering) {
-           		ai.canMove = false;
-            	Wander();
+			Vector2 lookDir = player.position - transform.position;
+			float lookAngle = Vector2.Angle(transform.up, lookDir);
+			Debug.Log(lookAngle);
+			RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, lookDir, viewDistance, layerMask);
+
+        	if (lookAngle <= fieldOfView && raycastHit2D.collider != null && raycastHit2D.collider.tag == "Player") {
+            	ai.canMove = true;
         	}
         	else {
-            	ai.canMove = true;
+				
+           		ai.canMove = false;
+            	Wander();
         	}
     	}
 

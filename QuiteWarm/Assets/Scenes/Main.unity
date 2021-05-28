@@ -2468,18 +2468,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8617748306782320110, guid: 034ee98ef50b5e14d8f8732629c6b246, type: 3}
-      propertyPath: moveSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8617748306782320110, guid: 034ee98ef50b5e14d8f8732629c6b246, type: 3}
-      propertyPath: rotationDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8617748306782320110, guid: 034ee98ef50b5e14d8f8732629c6b246, type: 3}
-      propertyPath: rotationSpeed
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 034ee98ef50b5e14d8f8732629c6b246, type: 3}
 --- !u!1 &1321474733

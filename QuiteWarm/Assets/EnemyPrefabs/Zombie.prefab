@@ -203,9 +203,15 @@ MonoBehaviour:
   version: 1
   wandering: 1
   rb: {fileID: 1995358785507865123}
-  rotationSpeed: 30
-  moveSpeed: 2.5
+  rotationSpeed: 100
+  rotationDelay: 3
+  moveSpeed: 2
+  viewDistance: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 513
   target: {fileID: 0}
+  player: {fileID: 0}
 --- !u!58 &7737980600023208632
 CircleCollider2D:
   m_ObjectHideFlags: 0
