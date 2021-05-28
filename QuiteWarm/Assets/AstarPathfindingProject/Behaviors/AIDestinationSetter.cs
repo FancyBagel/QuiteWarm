@@ -76,7 +76,7 @@ namespace Pathfinding {
 			ai.MovementUpdate(Time.deltaTime, out newPosition, out newRotation);
 			newRotation = transform.rotation * Quaternion.Euler(Vector3.forward * rotation * Time.deltaTime);
 			//newPosition = transform.position + new Vector3(-Mathf.Sin(newRotation.eulerAngles.z), Mathf.Cos(newRotation.eulerAngles.z), 0) * moveSpeed * Time.deltaTime;
-			newPosition = transform.position + transform.forward * Time.deltaTime * moveSpeed;
+			newPosition = transform.position + transform.up * Time.deltaTime * moveSpeed;
 			//newPosition = new Vector3(0, 0, 0);
 			
 			ai.FinalizeMovement(newPosition, newRotation);
