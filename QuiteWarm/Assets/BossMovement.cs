@@ -14,10 +14,11 @@ public class BossMovement : MonoBehaviour
     private float dashStopCooldown = 0;
     Vector2 dashVector;
     public GameObject weapons;
+    public Animator animator;
 
     void Start()
     {
-        currentCooldown = 0;
+        currentCooldown = phaseCooldown / 2f;
         player = GameObject.Find("Player");
     }
 
@@ -29,6 +30,7 @@ public class BossMovement : MonoBehaviour
             int weaponToBeGiven = Random.Range(0, 3);
 
             selectWeapon(weaponToBeGiven);
+            animator.SetInteger("Attack mode", weaponToBeGiven);
 
             if (weaponToBeGiven == 2) 
                 setupDash();
