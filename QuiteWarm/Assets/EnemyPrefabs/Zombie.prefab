@@ -207,6 +207,7 @@ MonoBehaviour:
   rotationDelay: 3
   moveSpeed: 2
   viewDistance: 10
+  fieldOfView: 30
   layerMask:
     serializedVersion: 2
     m_Bits: 513
@@ -267,6 +268,7 @@ MonoBehaviour:
   maxHealth: 5
   entityBoi: {fileID: 3500486842588896434}
   healthBar: {fileID: 3500486843450577977}
+  onHit: {fileID: 5660457804885616433, guid: f143edeaf7f9e7f4faf1aa169d12bf28, type: 3}
 --- !u!114 &3292165663625054147
 MonoBehaviour:
   m_ObjectHideFlags: 0

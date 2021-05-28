@@ -13,6 +13,8 @@ public class EntityHealth : MonoBehaviour
 
     public Healthbar healthBar;
 
+    public GameObject onHit;
+
     public void Start() {
         health = maxHealth;
         if (hasHealthBar) {
@@ -58,6 +60,7 @@ public class EntityHealth : MonoBehaviour
 
         if (collision.gameObject.layer == 6) {// bullets
             --health;
+            Instantiate(onHit, collision.GetContact(0).point, Quaternion.identity);
             if (healthBar) {
                 healthBar.SetHealth(health);
                 healthBar.SetActive(true);

@@ -130,6 +130,7 @@ MonoBehaviour:
   maxHealth: 10
   entityBoi: {fileID: 8696073836956105507}
   healthBar: {fileID: 0}
+  onHit: {fileID: 5660457804885616433, guid: f143edeaf7f9e7f4faf1aa169d12bf28, type: 3}
 --- !u!114 &1601969799034436383
 MonoBehaviour:
   m_ObjectHideFlags: 0
