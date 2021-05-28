@@ -15,11 +15,24 @@ public class PlayerMovement : MonoBehaviour
 
     public float scale = 0.02f;
 
+    public GameObject footstep;
+
+    private float noise = 0;
+
     // Update is called once per frame
     void Update()
     {
         ProcessInputs();
-        
+        MakeNoise();
+    }
+
+    void MakeNoise() {
+        noise += rb.velocity.magnitude * Time.deltaTime;
+
+        if (noise >= 2) {
+            noise = 0;
+            Instantiate(footstep, transform);
+        }
     }
 
     void FixedUpdate() {

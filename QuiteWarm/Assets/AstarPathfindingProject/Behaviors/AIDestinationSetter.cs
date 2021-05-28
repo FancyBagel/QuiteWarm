@@ -15,30 +15,17 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_a_i_destination_setter.php")]
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
-		public bool wandering = true;
-   		public Rigidbody2D rb;
-    	public float rotationSpeed = 90;
-		public float rotationDelay = 3;
-    	public float moveSpeed;
-		public float viewDistance = 10;
-		public float fieldOfView = 30;
-		public LayerMask layerMask;
+
 
 		public Transform target;
-		public Transform player;
-		private float rotation = 0;
-		private float rotationCD = 0;
+
 		IAstarAI ai;
 
 		void Start() {
-			player = GameObject.Find("Player").transform;
-			target = player;
-
-        	transform.Rotate(Vector3.forward, Random.Range(-180, 180));
+			ai = GetComponent<IAstarAI>();
 		}
 
 		void OnEnable () {
-			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
 			// This is enough in theory, but this script will also update the destination every
 			// frame as the destination is used for debugging and may be used for other things by other
@@ -52,45 +39,9 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
-			
-        	UpdateMovement();   
-		}
 
-		void UpdateMovement()
-    	{
-			Vector2 lookDir = player.position - transform.position;
-			float lookAngle = Vector2.Angle(transform.up, lookDir);
-			Debug.Log(lookAngle);
-			RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, lookDir, viewDistance, layerMask);
-
-        	if (lookAngle <= fieldOfView && raycastHit2D.collider != null && raycastHit2D.collider.tag == "Player") {
-            	ai.canMove = true;
-        	}
-        	else {
-				
-           		ai.canMove = false;
-            	Wander();
-        	}
-    	}
-
-		void Wander() {
-			if (rotationCD <= 0) {
-				rotation = Random.Range(-rotationSpeed, rotationSpeed);
-				rotationCD = rotationDelay;
-			}
-			// transform.Rotate(Vector3.forward, rotation * Time.deltaTime);
-			rotationCD -= Time.deltaTime;
-			// rb.velocity = new Vector2(0, moveSpeed);
-			Vector3 newPosition;
-			Quaternion newRotation;
-			ai.MovementUpdate(Time.deltaTime, out newPosition, out newRotation);
-			newRotation = transform.rotation * Quaternion.Euler(Vector3.forward * rotation * Time.deltaTime);
-			//newPosition = transform.position + new Vector3(-Mathf.Sin(newRotation.eulerAngles.z), Mathf.Cos(newRotation.eulerAngles.z), 0) * moveSpeed * Time.deltaTime;
-			newPosition = transform.position + transform.up * Time.deltaTime * moveSpeed;
-			//newPosition = new Vector3(0, 0, 0);
-			
-			ai.FinalizeMovement(newPosition, newRotation);
+			if (target != null && ai != null) ai.destination = target.position;	
 		}
 	}
+		
 }
