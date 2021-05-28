@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject footstep;
 
     private float noise = 0;
+    private bool sneak = false;
 
     // Update is called once per frame
     void Update()
@@ -27,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void MakeNoise() {
-        noise += rb.velocity.magnitude * Time.deltaTime;
+        if (sneak)
+            noise += rb.velocity.magnitude * Time.deltaTime / 4;
+        else
+            noise += rb.velocity.magnitude * Time.deltaTime;
 
         if (noise >= 2) {
             noise = 0;
@@ -46,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+        sneak = Input.GetButton("Fire3");
+
         moveDirection = new Vector2(moveX, moveY).normalized;
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -62,12 +68,20 @@ public class PlayerMovement : MonoBehaviour
         else {
             scale +=0.02f;
         }
-        Time.timeScale = Mathf.Min(scale, 1);
+        if (sneak) {
+            Time.timeScale = Mathf.Min(scale, 1);
+        }
+        else {
+            Time.timeScale = Mathf.Min(scale, 1);
+        }
         Time.fixedDeltaTime = 0.005f * Time.timeScale;
     }
 
     void Move() {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        if (sneak)
+            rb.velocity = new Vector2(moveDirection.x * moveSpeed / 2, moveDirection.y * moveSpeed / 2);
+        else
+            rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         //TODO change to add force for smoother movement
 
     }
