@@ -21,6 +21,8 @@ public class ZombieAudio : MonoBehaviour
         audio.pitch = 0.5f + Time.timeScale / 2;
         if(cd <= 0) {
             audio.Play(0);
+            ParticleSystem exp = GetComponent<ParticleSystem>();
+            exp.Play();
             cd = Random.Range(500f, 1000f);
         }
     }
