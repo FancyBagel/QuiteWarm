@@ -201,6 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
+  wandering: 1
+  rb: {fileID: 1995358785507865123}
+  rotationSpeed: 30
+  moveSpeed: 2.5
   target: {fileID: 0}
 --- !u!58 &7737980600023208632
 CircleCollider2D:

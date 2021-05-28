@@ -15,11 +15,21 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_a_i_destination_setter.php")]
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
+		public bool wandering = true;
+   		public Rigidbody2D rb;
+    	public float rotationSpeed = 90;
+		public float rotationDelay = 3;
+    	public float moveSpeed;
+
 		public Transform target;
+		private float rotation = 0;
+		private float rotationCD = 0;
 		IAstarAI ai;
 
 		void Start() {
 			target = GameObject.Find("Player").transform;
+			
+        	transform.Rotate(Vector3.forward, Random.Range(-180, 180));
 		}
 
 		void OnEnable () {
@@ -38,6 +48,38 @@ namespace Pathfinding {
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
 			if (target != null && ai != null) ai.destination = target.position;
+			
+        	UpdateMovement();   
+		}
+
+		void UpdateMovement()
+    	{
+        	if (wandering) {
+           		ai.canMove = false;
+            	Wander();
+        	}
+        	else {
+            	ai.canMove = true;
+        	}
+    	}
+
+		void Wander() {
+			if (rotationCD <= 0) {
+				rotation = Random.Range(-rotationSpeed, rotationSpeed);
+				rotationCD = rotationDelay;
+			}
+			// transform.Rotate(Vector3.forward, rotation * Time.deltaTime);
+			rotationCD -= Time.deltaTime;
+			// rb.velocity = new Vector2(0, moveSpeed);
+			Vector3 newPosition;
+			Quaternion newRotation;
+			ai.MovementUpdate(Time.deltaTime, out newPosition, out newRotation);
+			newRotation = transform.rotation * Quaternion.Euler(Vector3.forward * rotation * Time.deltaTime);
+			//newPosition = transform.position + new Vector3(-Mathf.Sin(newRotation.eulerAngles.z), Mathf.Cos(newRotation.eulerAngles.z), 0) * moveSpeed * Time.deltaTime;
+			newPosition = transform.position + transform.forward * Time.deltaTime * moveSpeed;
+			//newPosition = new Vector3(0, 0, 0);
+			
+			ai.FinalizeMovement(newPosition, newRotation);
 		}
 	}
 }

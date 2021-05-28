@@ -305,8 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMobile: 1
   hasHealthBar: 1
-  health: 100
-  maxHealth: 100
+  health: 60
+  maxHealth: 60
   entityBoi: {fileID: 3006466804912306709}
   healthBar: {fileID: 7993306881917360139}
 --- !u!114 &954785460847569278
